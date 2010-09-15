@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title Home - Jeremy Speissegger - Portfolio
+    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}       
+  %body
+    #menu
+      #home.round.item.selected
+        %a{ 'href' => '/'}
+          %h4 Home
+      .item =>
+      #cv.round.item
+        %a{ 'href' => '/resume'}
+          %h4 Resume
+    #hcard-jeremy-speissegger.vcard.round
+      #photo
+      #status Status: Busy
+      %span.fn Jeremy Speissegger
+      %a.email{ 'href' => 'mailto:jeremy.speissegger@gmail.com' } jeremy.speissegger@gmail.com
+      .adr
+        .street-address 9 Chicago Ave
+        %span.locality Maroubra
+        %span.postal-code 2035
+        %span.country-name Australia
+    #core-skills.round
+      %div
+        - @sites.each do |site|
+          %a{ 'href' => '##{key}'} #{site.annee}
+    #global
+      = yield

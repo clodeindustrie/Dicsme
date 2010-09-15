@@ -1,0 +1,44 @@
+>> Writing PID to /var/www/rubyprojects/thin/dicsme/thin.4568.pid
+>> Changing process privilege to root:root
+Couldn't change user and group to root:root: Operation not permitted
+>> Exiting!
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load -- ../dicsme (LoadError)
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:8
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1:in `new'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1
+>> Writing PID to /var/www/rubyprojects/thin/dicsme/thin.4568.pid
+>> Changing process privilege to root:root
+>> Exiting!
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load -- ../dicsme (LoadError)
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:8
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1:in `new'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1
+>> Writing PID to /var/www/rubyprojects/thin/dicsme/thin.4568.pid
+>> Changing process privilege to root:root
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4568, CTRL+C to stop
+>> Exiting!
+>> Writing PID to /var/www/rubyprojects/thin/dicsme/thin.4568.pid
+>> Changing process privilege to root:root
+>> Exiting!
+/usr/lib/ruby/gems/1.8/gems/dm-core-1.0.0/lib/dm-core/adapters.rb:12:in `new': +options+ should be Hash or Addressable::URI or String, but was NilClass (ArgumentError)
+	from /usr/lib/ruby/gems/1.8/gems/dm-core-1.0.0/lib/dm-core.rb:257:in `setup'
+	from ./dicsme.rb:20
+	from /usr/lib/ruby/gems/1.8/gems/sinatra-1.0/lib/sinatra/base.rb:929:in `configure'
+	from (__DELEGATE__):2:in `send'
+	from (__DELEGATE__):2:in `configure'
+	from ./dicsme.rb:19
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:8
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+	from /usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1:in `new'
+	from /var/www/rubyprojects/thin/dicsme/config/config.ru:1

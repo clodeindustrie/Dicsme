@@ -1,0 +1,16 @@
+- @sites.each do |site|
+  - if site.annee != @annee_en_cour
+    .year
+      %a{ 'name' => site.annee } #{site.annee}
+  - @annee_en_cour = site.annee
+  .site{ :id => site.id }
+    .image
+      %a{ 'href' => site.route }
+        %img.screen{ 'src' => "/images/sites/" + site.vignette , 'alt' => site.titre }
+    .captionContainer
+      %h3.sitetitre
+        %a{ 'href' => site.route } #{site.titre}
+      .caption
+        = site.caption
+        %span.tips
+          = site.tips

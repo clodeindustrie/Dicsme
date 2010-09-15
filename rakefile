@@ -1,0 +1,65 @@
+require 'dicsme'
+
+task :migrate do
+  DataMapper.auto_migrate!
+end
+
+desc "Let's start thin !"
+task :start do
+  sh "thin -s 1 -C config/config.yml -R config/config.ru start"
+end
+
+desc "Let's stop thin !"
+task :stop do
+  sh "thin -s 1 -C config/config.yml -R config/config.ru stop"
+end
+
+desc "Let's restart thin !"
+task :restart do
+  sh "thin -s 1 -C config/config.yml -R config/config.ru restart"
+end
+
+desc "Let's set the app to dev mode"
+task :set_to_dev do  
+  require "yaml"
+    
+  puts 'Set to dev config'
+  myconfig = YAML.load_file( 'config/config.yml' )
+
+  if myconfig['environment'] == "development"
+    puts "Config already in dev mode"
+  else
+    puts "Config was #{myconfig['environment']} set to dev mode"
+    myconfig['environment'] = "development"
+    
+    File.open("config/config.yml", "w") do |f|
+      f.write(myconfig.to_yaml)
+    end
+  end
+end
+
+desc "Let's set the app to prod mode"
+task :set_to_prod do  
+  require "yaml"
+    
+  puts 'Set to prod config'
+  myconfig = YAML.load_file( 'config/config.yml' )
+
+  if myconfig['environment'] == "production"
+    puts "Config already in prod mode"
+  else
+    puts "Config was #{myconfig['environment']} has been set to prod mode"
+    myconfig['environment'] = "production"
+    
+    File.open("config/config.yml", "w") do |f|
+      f.write(myconfig.to_yaml)
+    end
+  end
+end
+
+desc "Let's show the config"
+task :show_config do  
+  require "yaml"
+  myconfig = YAML.load_file( 'config/config.yml' )
+  puts myconfig.to_yaml
+end

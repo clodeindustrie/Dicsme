@@ -1,0 +1,14 @@
+--- 
+rackup: /var/www/rubyprojects/thin/dicsme/config/config.ru
+pid: /var/www/rubyprojects/thin/dicsmethin.pid
+group: root
+address: 127.0.0.1
+timeout: 30
+port: 4567
+log: /var/www/rubyprojects/thin/dicsme/log/thin.log
+max_conns: 1024
+max_persistent_conns: 512
+environment: development
+daemonize: true
+user: root
+chdir: /var/www/rubyprojects/thin/dicsme
