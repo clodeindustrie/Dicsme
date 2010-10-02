@@ -1,7 +1,9 @@
 require 'dicsme'
 
+desc "Reset and migrate the DB"
 task :migrate do
   DataMapper.auto_migrate!
+  Player.create( :playing => "")
 end
 
 desc "Let's start thin !"

@@ -2870,3 +2870,25 @@ Couldn't change user and group to root:root: Operation not permitted
 127.0.0.1 - - [05/Sep/2010 16:10:48] "GET /list HTTP/1.1" 200 45 0.0119
 127.0.0.1 - - [05/Sep/2010 16:22:44] "GET /list HTTP/1.1" 200 45 0.0127
 >> Exiting!
+>> Writing PID to /var/www/rubyprojects/thin/dicsmethin.4567.pid
+>> Changing process privilege to root:root
+Couldn't change user and group to root:root: Operation not permitted
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [25/Sep/2010 16:16:35] "GET / HTTP/1.1" 200 12 0.0020
+127.0.0.1 - - [25/Sep/2010 16:39:18] "GET /list HTTP/1.1" 200 45 0.1315
+127.0.0.1 - - [25/Sep/2010 16:40:10] "GET /list HTTP/1.1" 200 45 0.0076
+127.0.0.1 - - [25/Sep/2010 16:40:53] "GET /list HTTP/1.1" 200 45 0.0089
+127.0.0.1 - - [25/Sep/2010 16:44:24] "POST /add HTTP/1.1" 200 32 0.0772
+127.0.0.1 - - [25/Sep/2010 16:45:48] "GET /list HTTP/1.1" 200 81 0.0098
+>> Exiting!
+>> Writing PID to /var/www/rubyprojects/thin/dicsmethin.4567.pid
+>> Changing process privilege to root:root
+Couldn't change user and group to root:root: Operation not permitted
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [25/Sep/2010 17:58:28] "GET /playing HTTP/1.1" 200 2 0.0163
+127.0.0.1 - - [25/Sep/2010 18:00:53] "GET /list HTTP/1.1" 200 2 0.0073
+>> Exiting!

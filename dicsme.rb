@@ -34,7 +34,7 @@
       include DataMapper::Resource
 
       property :id,         Serial
-      property :UUID,       String,  :required => true, :key => true, :unique => true
+      property :UID,       String,  :required => true, :key => true, :unique => true
       property :identifier, String,  :required => true, :key => true, :unique => true
       
       property :created_at, DateTime
@@ -42,6 +42,15 @@
       
     end
     
+	class Player
+      include DataMapper::Resource
+	
+	  property :id, Serial
+	  property :playing, String
+      property :updated_at, DateTime
+	end
+
+
     DataMapper.finalize
     
     
@@ -49,19 +58,22 @@
     # # Actions for the Daemon side
     #
     
-    
+    # Apparition du disc
     get '/app/:uid' do
-      
-      lp = LP.first( :UUID => params[:uid])
-    
-      play(lp.id)
+		lp = LP.first( :UID => params[:uid])
+	 
+		if !lp.nil?
+		 	play(lp.id)
+		end
     end
     
+	# Disparition du disc
     get '/dis/:uid' do
-      
-      lp = LP.first( :UUID => params[:uid])
-      
-      stop(id)
+    	lp = LP.first( :UID => params[:uid])
+
+   		if !lp.nil?
+			stop(id)
+		end
     end
     
     
@@ -72,6 +84,9 @@
     #
     # # Actions for XBMC
     #
+    get '/playing' do
+      LP.all( :UID => Player.first.playing ).to_json( :only => [:UUID, :identifier])
+    end
     
     get '/list' do
       LP.all.to_json( :only => [:UUID, :identifier])
@@ -90,7 +105,7 @@
       )
       
       if lp.save
-        "[{ 'success' => 'Album saved' }]"
+        "[{ 'success' : 'Album saved' }]"
       else
         lp.errors
       end
@@ -101,9 +116,9 @@
       
       if !lp.nil?
         lp.destroy
-        "[{ 'success' => 'Album deleted' }]"
+        "[{ 'success' : 'Album deleted' }]"
       else
-        "[{ 'error' => 'Paire Doesn\'t exist' }]"
+        "[{ 'error' : 'Paire Doesn\'t exist' }]"
       end      
     end
     
@@ -113,11 +128,17 @@
     #
     
     def play(id)
-      
+      pl = Player.first
+	  pl.playing = id
+	  pl.updated_at = Time.now
+	  pl.save
     end
     
     def stop(id)
-      
+      pl = Player.first
+	  pl.playing = ""
+	  pl.updated_at = Time.now
+	  pl.save
     end
     
     def toAdd(uid)

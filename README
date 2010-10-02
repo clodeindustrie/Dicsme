@@ -1,1 +1,3 @@
-Not really anything interesting right now, there is more to come
+This is a small server using sinatra and thin that crud a single table in sqlite DB. That table represents the association of a RFID UID and a unique identifier from XBMC
+
+
