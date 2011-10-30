@@ -1,5 +1,10 @@
 require 'dicsme'
 
+desc  "default task"
+task :default do
+  sh "rake -T"
+end
+
 desc "Reset and migrate the DB"
 task :migrate do
   DataMapper.auto_migrate!
@@ -19,6 +24,21 @@ end
 desc "Let's restart thin !"
 task :restart do
   sh "thin -s 1 -C config/config.yml -R config/config.ru restart"
+end
+
+desc "Let's start thin !"
+task :startx do
+  sh "thin -s 1 -C config/config_ext.yml -R config/config.ru start"
+end
+
+desc "Let's stop thin !"
+task :stopx do
+  sh "thin -s 1 -C config/config_ext.yml -R config/config.ru stop"
+end
+
+desc "Let's restart thin !"
+task :restartx do
+  sh "thin -s 1 -C config/config_ext.yml -R config/config.ru restart"
 end
 
 desc "Let's set the app to dev mode"
